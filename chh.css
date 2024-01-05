@@ -1,0 +1,453 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+body {
+  margin:0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #333333;
+}
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+}
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:110vh;
+  text-align:center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+/* Add this to your existing CSS or in a separate CSS file */
+.rectangle-container {
+    width: 800px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust the transparency as needed */
+    border-radius: 20px; /* Makes it a round-edged rectangle */
+    margin-left: 10px; /* Adjust the margin as needed to position it to the right of <h1> */
+    display: inline-block; /* Display it as an inline block to appear next to <h1> */
+}
+/* Add this to your existing CSS or in a separate CSS file */
+.navbar {
+    background: linear-gradient(135deg, #4c88b3, #9b6fbb); /* Gradient background */
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center; /* Center items vertically */
+}
+
+.menu-item {
+    margin-right: 20px; /* Adjust the spacing between menu items */
+}
+
+.menu-item:last-child {
+    margin-right: 0; /* Remove margin for the last menu item */
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600; /* Bold text */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.menu-item a:hover {
+    color: #e3d7ff; /* Color change on hover */
+}
+
+.menu-item a:before {
+    content: "";
+    display: block;
+    height: 2px; /* Underline style */
+    width: 0;
+    background: #e3d7ff; /* Line color */
+    transition: width 0.3s;
+}
+
+.menu-item a:hover:before {
+    width: 100%; /* Line width on hover */
+}
+/* Add this to your existing CSS or in a separate CSS file */
+.timer {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  background-color: #1695e5;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(241, 244, 245, 0.5);
+}
+.card {
+  width: 190px;
+  height: 254px;
+  border-radius: 50px;
+  background: #ffffff;
+  margin-right: 30px;
+  transition: transform 0.2s;
+  cursor: pointer;
+  box-shadow: 20px 20px 60px #7d7c7c,
+                -20px -20px 60px #b8b6b6;
+                
+ }
+ .tcard {
+  width: 190px;
+  height: 254px;
+  border-radius: 50px;
+  margin-right: 30px;
+  background: #ffffff;
+  transition: transform 0.2s;
+  cursor: pointer;
+  box-shadow: 20px 20px 60px #7d7c7c,
+                -20px -20px 60px #b8b6b6;
+ }
+ .ttcard {
+  width: 190px;
+  height: 254px;
+  border-radius: 50px;
+  background: #ffffff;
+  margin-right: 30px;
+  transition: transform 0.2s;
+  cursor: pointer;
+  box-shadow: 20px 20px 60px #7d7c7c,
+                -20px -20px 60px #b8b6b6;
+                
+ }
+ .tttcard {
+  width: 190px;
+  height: 254px;
+  border-radius: 50px;
+  background: #ffffff;
+  margin-right: 30px;
+  transition: transform 0.2s;
+  cursor: pointer;
+  box-shadow: 20px 20px 60px #7d7c7c,
+                -20px -20px 60px #b8b6b6;
+                
+ }
+ 
+.card:hover {
+  transform: scale(1.05); /* Add a hover effect, e.g., scaling up */
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit; /* Inherit link color */
+}
+.tcard:hover {
+  transform: scale(1.05); /* Add a hover effect, e.g., scaling up */
+}
+
+.tcard-link {
+  text-decoration: none;
+  color: inherit; /* Inherit link color */
+}
+.ttcard:hover {
+  transform: scale(1.05); /* Add a hover effect, e.g., scaling up */
+}
+
+.ttcard-link {
+  text-decoration: none;
+  color: inherit; /* Inherit link color */
+}
+.tttcard:hover {
+  transform: scale(1.05); /* Add a hover effect, e.g., scaling up */
+}
+
+.tttcard-link {
+  text-decoration: none;
+  color: inherit; /* Inherit link color */
+}
+.loader {
+  position: relative;
+  overflow: hidden;
+  border-right: 3px solid;
+  width: 0px;
+  animation: typewriter 2s steps(10)  infinite alternate , blink 0.5s steps(10) infinite;
+}
+
+.loader-text {
+  font-size: 40px;
+  font-weight: 700;
+  background: linear-gradient(to right,#159957, #155799);
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 240px;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-right-color: rgba(255,255,255,.75);
+    ;
+  }
+
+  100% {
+    border-right-color: transparent;
+  }
+}
+.ncontainer {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  width: 320px;
+  text-align: center;
+  position: relative; /* Change from relative to fixed */
+  left: 50%; /* Center horizontally */
+  bottom: 60px; /* Adjust the distance from the bottom as needed */
+  transform: translateX(-50%);
+}
+
+h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.task-input {
+  display: flex;
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background: #1a73e6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 8px 0;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+li.completed {
+  background: #e6e6e6;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.delete {
+  color: #f44336;
+  cursor: pointer;
+}
+.dcard {
+  width: 340px;
+  height: 100px;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  border-radius: 8px;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  left: 5%;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  cursor: pointer;
+}
+
+.dcard-content {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.dcard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align:initial;
+  height: 100%;
+} 
+.dcard-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: inherit;
+  text-transform: uppercase;
+  position: relative;
+  top: 10%;
+}
+
+.dcard:hover {
+  transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dcard:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  z-index: 1;
+}
+
+.dcard:hover:before {
+  transform: translateX(-100%);
+}
+
+.dcard:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  z-index: 1;
+}
+
+.dcard:hover:after {
+  transform: translateX(100%);
+}
+.dcard-content .dcard-para {
+  color: inherit;
+  opacity: 0.8;
+  font-size: 14px;
+}
+.music-player {
+  width: 300px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+  box-shadow: 0 4px 6px rgba(24, 24, 24, 0.771);
+  padding: 20px;
+  position: relative;
+  left: 50%;
+  bottom: 90px; /* Adjust the distance from the bottom as needed */
+  transform: translateX(-50%);
+}
