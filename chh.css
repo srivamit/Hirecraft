@@ -4,6 +4,7 @@ body {
   margin:0;
 }
 
+
 h1 {
   font-family: 'Lato', sans-serif;
   font-weight:300;
@@ -48,10 +49,8 @@ p {
 .waves {
   position:relative;
   width: 100%;
-  height:15vh;
+  height:13vh;
   margin-bottom:-7px; /*Fix for safari gap*/
-  min-height:100px;
-  max-height:150px;
 }
 
 .content {
@@ -114,16 +113,21 @@ p {
 }
 /* Add this to your existing CSS or in a separate CSS file */
 .navbar {
-    background: linear-gradient(135deg, #4c88b3, #9b6fbb); /* Gradient background */
-    border-radius: 10px;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between; /* Distribute items evenly */
-    align-items: center; /* Center items vertically */
+  background: linear-gradient(135deg, #4c88b3, #9b6fbb); /* Gradient background */
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly */
+  align-items: center; /* Center items vertically */
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Stick to the top of the viewport */
+  width: 100%; /* Take up full width of viewport */
+  z-index: 1000; /* Ensure it appears above other content */
 }
 
+
 .menu-item {
-    margin-right: 20px; /* Adjust the spacing between menu items */
+    margin-right: 18px; /* Adjust the spacing between menu items */
 }
 
 .menu-item:last-child {
@@ -174,41 +178,8 @@ p {
   margin-right: 30px;
   transition: transform 0.2s;
   cursor: pointer;
-  box-shadow: 20px 20px 60px #7d7c7c,
-                -20px -20px 60px #b8b6b6;
-                
- }
- .tcard {
-  width: 190px;
-  height: 254px;
-  border-radius: 50px;
-  margin-right: 30px;
-  background: #ffffff;
-  transition: transform 0.2s;
-  cursor: pointer;
-  box-shadow: 20px 20px 60px #7d7c7c,
-                -20px -20px 60px #b8b6b6;
- }
- .ttcard {
-  width: 190px;
-  height: 254px;
-  border-radius: 50px;
-  background: #ffffff;
-  margin-right: 30px;
-  transition: transform 0.2s;
-  cursor: pointer;
-  box-shadow: 20px 20px 60px #7d7c7c,
-                -20px -20px 60px #b8b6b6;
-                
- }
- .tttcard {
-  width: 190px;
-  height: 254px;
-  border-radius: 50px;
-  background: #ffffff;
-  margin-right: 30px;
-  transition: transform 0.2s;
-  cursor: pointer;
+  position: relative;
+  top: 30%;
   box-shadow: 20px 20px 60px #7d7c7c,
                 -20px -20px 60px #b8b6b6;
                 
@@ -219,30 +190,6 @@ p {
 }
 
 .card-link {
-  text-decoration: none;
-  color: inherit; /* Inherit link color */
-}
-.tcard:hover {
-  transform: scale(1.05); /* Add a hover effect, e.g., scaling up */
-}
-
-.tcard-link {
-  text-decoration: none;
-  color: inherit; /* Inherit link color */
-}
-.ttcard:hover {
-  transform: scale(1.05); /* Add a hover effect, e.g., scaling up */
-}
-
-.ttcard-link {
-  text-decoration: none;
-  color: inherit; /* Inherit link color */
-}
-.tttcard:hover {
-  transform: scale(1.05); /* Add a hover effect, e.g., scaling up */
-}
-
-.tttcard-link {
   text-decoration: none;
   color: inherit; /* Inherit link color */
 }
@@ -450,4 +397,36 @@ li.completed {
   left: 50%;
   bottom: 90px; /* Adjust the distance from the bottom as needed */
   transform: translateX(-50%);
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing-text {
+  overflow: hidden; 
+  white-space: nowrap;
+  font-size: 18px;
+  margin: 0;
+  animation: typing 10s steps(40, end) infinite;
+  border-right: 2px solid black; /* Adjust thickness as needed */
+  padding-right: 3px; /* Adjust padding as needed */
+}
+.floating-button {
+  position: fixed;
+  bottom: 30px;
+  left: 12px;
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.floating-button img {
+  width: 80%;
+  height: auto;
 }

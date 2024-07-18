@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up and Sign In Form</title>
+    <link rel="stylesheet" href="logreg.css">
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4">
+    </video>
+    <div class="content-card">
+        <img src="https://imgur.com/3ztojuA.png" alt="Logo" class="positioned-image" width="200" height="110">
+    </div>
+    <div class="container right-panel-active">
+        <!-- Sign Up -->
+        <div class="container__form container--signup">
+            <form action="#" class="form" id="signup_form">
+                <h2 class="form__title"><strong style="color: cyan">Sign Up</strong></h2>
+
+                <input required="" type="text" style="color:  rgb(255, 255, 255);" placeholder="Username" class="input" />
+                <br>
+                <input required="" type="email" id="email" style="color: cyan;" placeholder="Email" class="input" />
+                <br>
+                <input required="" type="password" id="password" style="color: cyan;" placeholder="Password" class="input" />
+                <button type="button" id="register" class="btn">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Sign In -->
+        <div class="container__form container--signin">
+            <form action="#" class="form" id="signin_form">
+                <h2 class="form__title" style="color: white;">Sign In</h2>
+
+                <input required="" type="email" id="login_email" placeholder="Email" class="input" />
+                <br>
+                <input required="" type="password" id="login_password" placeholder="Password" class="input" />
+                <a href="#" class="link" style="color: rgb(24, 126, 126);">Forgot your password?</a>
+                <button type="button" id="login" class="btn">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Overlay -->
+        <div class="container__overlay">
+            <div class="overlay">
+                <div class="overlay__panel overlay--left">
+                    <button class="btn" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay__panel overlay--right">
+                    <button class="btn" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        
+        // Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAMNUJjlo1PyOOHtXMCogAKmrpwAyErNjI",
+          authDomain: "hcraft-7606b.firebaseapp.com",
+          projectId: "hcraft-7606b",
+          storageBucket: "hcraft-7606b.appspot.com",
+          messagingSenderId: "1075209924169",
+          appId: "1:1075209924169:web:a868e736cd6bb695f79998",
+          measurementId: "G-KCF7FNCZFY"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        
+        document.getElementById("register").addEventListener("click", function() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+        
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                alert("Registration successful!!");
+                window.location.href = "choicetab.html"; // Redirect to HCraft.html
+            })
+            .catch((error) => {
+                console.log(error.message);
+                alert(error.message);
+            });
+        });
+        
+        document.getElementById("login").addEventListener("click", function() {
+            var email = document.getElementById("login_email").value;
+            var password = document.getElementById("login_password").value;
+        
+            signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                alert(user.email + " Login successful!!!");
+                // Store email in sessionStorage
+                sessionStorage.setItem('loggedInUserEmail', user.email);
+                window.location.href = "choicetab.html"; // Redirect to HCraft.html
+            })
+            .catch((error) => {
+                console.log(error.message);
+                alert(error.message);
+            });
+        });
+    
+        // Page functionality
+        const signInBtn = document.getElementById("signIn");
+        const signUpBtn = document.getElementById("signUp");
+        const container = document.querySelector(".container");
+    
+        signInBtn.addEventListener("click", () => {
+            container.classList.remove("right-panel-active");
+        });
+    
+        signUpBtn.addEventListener("click", () => {
+            container.classList.add("right-panel-active");
+        });
+    </script>
+    
+</body>
+</html>

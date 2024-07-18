@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choice Tab</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <style>
+    body {
+      background-color: #000000;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    #gradient {
+      width: 100%;
+      height: 800px;
+      padding: 0px;
+      margin: 0px;
+    }
+    .contain1 {
+    --hover-shadows: 16px 16px 33px #121212, -16px -16px 33px #303030;
+    --accent: rgb(41, 126, 236);
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: 1.1em;
+    background-color: #ffffff;
+    cursor: pointer;
+    color: rgb(29, 44, 91);
+    padding: 1em 2em;
+    transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
+        letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
+    box-shadow: 13px 13px 10px #1c1c1c;
+}
+
+.contain1:hover {
+  box-shadow: var(--hover-shadows);
+}
+
+.contain1:active {
+  box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
+  background-color: var(--accent);
+  transform: scale(0.95);
+}
+
+.cyberpunk-radio {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #30cfd0;
+  border-radius: 50%; /* Make it round */
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cyberpunk-radio:before {
+  content: "";
+  background-color: #30cfd0;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* Make it round */
+  transition: all 0.3s ease-in-out;
+}
+
+.cyberpunk-radio:checked:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.cyberpunk-radio-label {
+  font-size: 18px;
+  color: #04272b;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+
+  </style>
+</head>
+<body>
+  <div id="gradient"></div>
+  <div class="contain1" style="position: absolute; top: 100px; left: 40px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗜𝗼𝗧</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 100px; left: 180px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗠𝗟</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 100px; left: 320px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗖𝘆𝗯𝗲𝗿𝘀𝗲𝗰𝘂𝗿𝗶𝘁𝘆</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 100px; left: 570px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗖𝗼𝗺𝗽𝘂𝘁𝗲𝗿 𝗦𝗰𝗶𝗲𝗻𝗰𝗲</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 100px; left: 900px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗗𝗕𝗠𝗦</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 100px; left: 1070px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗗𝗦𝗔</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 100px; left: 1080px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗦𝗤𝗟</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 190px; left: 40px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗪𝗲𝗯-𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗺𝗲𝗻𝘁</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 190px; left: 340px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗔𝗜𝗠𝗟</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 190px; left: 510px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗖𝗹𝗼𝘂𝗱 𝗖𝗼𝗺𝗽𝘂𝘁𝗶𝗻𝗴</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 190px; left: 790px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗜𝗧</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 190px; left: 920px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗚𝗶𝘁𝗵𝘂𝗯</label>
+  </div>
+  <div class="contain1" style=" position: absolute; top: 190px; left: 920px;">
+    <label class="cyberpunk-radio-label">
+        <input type="radio" name="category" class="cyberpunk-radio" style="color:black;">
+        𝗚𝗮𝗺𝗲-𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗺𝗲𝗻𝘁</label>
+  </div>
+  <div style="position: absolute; top: 620px; left: 620px;">
+    <input type="button" style="width: 120px; height: 50px; border: none; border-radius: 25px; background-color: #fafcfc; color: black; cursor: pointer; outline: none; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;" 
+           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 6px 8px rgba(0, 0, 0, 0.2)';" 
+           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 4px 6px rgba(0, 0, 0, 0.1)';" 
+           onclick="this.style.backgroundColor='#007bff'; redirectToPage('HCraft.html');" 
+           value="𝗦𝗨𝗕𝗠𝗜𝗧>>">
+  </div>
+  
+  
+
+  <script>
+  function redirectToPage(page) {
+  window.location.href = page;
+  }
+    var colors = [
+      [0, 0, 255],   // Blue
+      [255, 255, 255], // White
+      [0, 255, 255]  // Cyan
+    ];
+
+    var step = 0;
+    //color table indices for: 
+    // current color left
+    // next color left
+    // current color right
+    // next color right
+    var colorIndices = [0, 1, 2, 2];
+
+    //transition speed
+    var gradientSpeed = 0.002;
+
+    function updateGradient() {
+      if ( $===undefined ) return;
+      
+      var c0_0 = colors[colorIndices[0]];
+      var c0_1 = colors[colorIndices[1]];
+      var c1_0 = colors[colorIndices[2]];
+      var c1_1 = colors[colorIndices[3]];
+
+      var istep = 1 - step;
+      var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+      var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+      var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+      var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+      var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+      var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+      var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+      var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+      $('#gradient').css({
+        background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"
+      }).css({
+        background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"
+      });
+      
+      step += gradientSpeed;
+      if ( step >= 1 ) {
+        step %= 1;
+        colorIndices[0] = colorIndices[1];
+        colorIndices[2] = colorIndices[3];
+        
+        //pick two new target color indices
+        //do not pick the same as the current one
+        colorIndices[1] = ( colorIndices[1] + 1 ) % colors.length;
+        colorIndices[3] = ( colorIndices[3] + 1 ) % colors.length;
+      }
+    }
+
+    setInterval(updateGradient, 10);
+    
+  </script>
+</body>
+</html>

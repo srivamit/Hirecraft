@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub-like Website</title>
+    <style>
+        /* CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #6e5494;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .repo {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .repo h3 {
+            color: #6e5494;
+            margin-top: 0;
+        }
+
+        .repo p {
+            margin-top: 5px;
+        }
+
+        .like-btn {
+            cursor: pointer;
+        }
+
+        .like-btn:hover {
+            color: #6e5494;
+        }
+
+        .comments {
+            margin-top: 20px;
+        }
+
+        .comment {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .comment p {
+            margin: 5px 0;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .comment-form button {
+            padding: 8px 15px;
+            background-color: #6e5494;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .comment-form button:hover {
+            background-color: #503b6d;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>GitHub-like Website</h1>
+</header>
+
+<div class="container">
+    <div id="repos"></div>
+
+    <h2>Create Repository</h2>
+    <form id="repoForm">
+        <label for="repoName">Repository Name:</label>
+        <input type="text" id="repoName" name="repoName">
+        <button type="submit">Create Repository</button>
+    </form>
+</div>
+
+<script>
+    const repoForm = document.getElementById('repoForm');
+    const repoNameInput = document.getElementById('repoName');
+    const reposContainer = document.getElementById('repos');
+
+    // Repositories data
+    let repositories = [];
+
+    // Function to render repositories
+    function renderRepos() {
+        reposContainer.innerHTML = '';
+        repositories.forEach(repo => {
+            const repoDiv = document.createElement('div');
+            repoDiv.classList.add('repo');
+
+            repoDiv.innerHTML = `
+                <h3>${repo.name}</h3>
+                <p>${repo.description}</p>
+                <button class="like-btn" onclick="likeRepo(${repo.id})">Like</button>
+                <div class="comments">
+                    <h4>Comments</h4>
+                    ${renderComments(repo.comments)}
+                    <form class="comment-form" onsubmit="addComment(event, ${repo.id})">
+                        <textarea placeholder="Add a comment"></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            `;
+
+            reposContainer.appendChild(repoDiv);
+        });
+    }
+
+    // Function to render comments
+    function renderComments(comments) {
+        return comments.map(comment => `
+            <div class="comment">
+                <p>${comment}</p>
+            </div>
+        `).join('');
+    }
+
+    // Function to add a comment
+    function addComment(event, repoId) {
+        event.preventDefault();
+        const commentForm = event.target;
+        const commentInput = commentForm.querySelector('textarea');
+        const comment = commentInput.value.trim();
+
+        if (comment !== '') {
+            const repoIndex = repositories.findIndex(repo => repo.id === repoId);
+            repositories[repoIndex].comments.push(comment);
+            renderRepos();
+            commentInput.value = '';
+        }
+    }
+
+    // Function to like a repository
+    function likeRepo(repoId) {
+        const repoIndex = repositories.findIndex(repo => repo.id === repoId);
+        repositories[repoIndex].likes++;
+        renderRepos();
+    }
+
+    // Function to handle repository creation
+    function createRepository(name) {
+        const newRepo = {
+            id: Date.now(),
+            name: name,
+            description: 'This is a sample repository.',
+            likes: 0,
+            comments: []
+        };
+
+        repositories.push(newRepo);
+        renderRepos();
+    }
+
+    // Event listener for repository creation form
+    repoForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const repoName = repoNameInput.value.trim();
+
+        if (repoName !== '') {
+            createRepository(repoName);
+            repoNameInput.value = '';
+        }
+    });
+</script>
+
+</body>
+</html>
